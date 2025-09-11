@@ -1,7 +1,7 @@
 # CMPS 2200  Recitation 02
 
-**Name (Team Member 1):**_________________________  
-**Name (Team Member 2):**_________________________
+**Name (Team Member 1):**Rodrigo Rosas Guzman  
+
 
 In this recitation, we will investigate recurrences. 
 To complete this recitation, follow the instructions in this document. Some of your answers will go in this file, and others will require you to edit `main.py`.
@@ -39,10 +39,39 @@ where $W(1) = 1$.
 
 **TODO: your answer goes here**
 
+### 4) Asymptotics with different f(n)
+
+
+- f(n) = 1  
+  - If a = 1 → W(n) = Θ(log n)  
+  - If a > 1 → W(n) = Θ(n^α)  
+
+- f(n) = log n  
+  - If a = 1 → W(n) = Θ((log n)^2)  
+  - If a > 1 → W(n) = Θ(n^α)  
+
+- f(n) = n  
+  - If α < 1 → W(n) = Θ(n)  
+  - If α = 1 → W(n) = Θ(n log n)  
+  - If α > 1 → W(n) = Θ(n^α)  
+
+
 - [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `test_compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
 
 **TODO: your answer goes here**
 
+Let α = log_b(a).  
+
+- If c < α → W(n) = Θ(n^α)  
+- If c = α → W(n) = Θ(n^α log n)  
+- If c > α → W(n) = Θ(n^c)  
+
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
 **TODO: your answer goes here**
+
+S(n) = S(n/b) + f(n), with S(1) = 1.  
+
+- f(n) = 1 → S(n) = Θ(log n)  
+- f(n) = log n → S(n) = Θ((log n)^2)  
+- f(n) = n → S(n) = Θ(n) 
